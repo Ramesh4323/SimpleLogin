@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                echo 'Building Login Page...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat 'xcopy /E /Y * C:\\xampp\\htdocs\\loginapp\\'
+            }
+        }
+
+    }
+}

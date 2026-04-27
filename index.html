@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login Page</h2>
+
+        <form onsubmit="login(event)">
+            <input type="text" id="username" placeholder="Username" required>
+
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if(username === "admin" && password === "1234"){
+                document.getElementById("message").innerHTML = "Login Successful";
+                document.getElementById("message").style.color = "green";
+            } else {
+                document.getElementById("message").innerHTML = "Invalid Credentials";
+                document.getElementById("message").style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
