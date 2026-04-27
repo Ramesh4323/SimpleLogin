@@ -3,15 +3,12 @@ pipeline {
 
     stages {
 
-        stage('Build') {
-            steps {
-                echo 'Building Login Page...'
-            }
-        }
-
         stage('Deploy') {
             steps {
-                bat 'xcopy /E /Y * C:\\xampp\\htdocs\\loginapp\\'
+                bat """
+                mkdir C:\\xampp\\htdocs\\loginapp
+                xcopy * C:\\xampp\\htdocs\\loginapp\\ /Y
+                """
             }
         }
 
